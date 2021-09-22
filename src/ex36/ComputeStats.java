@@ -1,4 +1,4 @@
-package com.company;
+package ex36;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -12,7 +12,7 @@ public class ComputeStats {
 
         do
         {
-            System.out.println("Enter a number: ");
+            System.out.println("Enter #: ");
             entry = input.next();
             if(!entry.equals("done")) {
                 try {
@@ -32,13 +32,7 @@ public class ComputeStats {
         System.out.println("The standard deviation is "+String.format("%.2f", std(numbers)));
     }
 
-    public static double average(ArrayList<Integer> numbers) {
-        int total = 0;
-        for(int num: numbers) {
-            total += num;
-        }
-        return (double)(total)/numbers.size();
-    }
+
     public static int max(ArrayList<Integer> numbers) {
         int max= numbers.get(0);
 
@@ -48,13 +42,20 @@ public class ComputeStats {
         }
         return max;
     }
- static int min(ArrayList<Integer> numbers) {
+    static int min(ArrayList<Integer> numbers) {
         int min= numbers.get(0);
         for(int num: numbers) {
             if(num < min)
                 min = num;
         }
         return min;
+    }
+    public static double average(ArrayList<Integer> numbers) {
+        int total = 0;
+        for(int num: numbers) {
+            total += num;
+        }
+        return (double)(total)/numbers.size();
     }
     public static double std(ArrayList<Integer> numbers) {
         double mean = average(numbers);
