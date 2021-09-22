@@ -7,8 +7,8 @@ public class ComputeStats {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        ArrayList<Integer> numbers = new ArrayList<Integer>();
-        String entry = null;
+        var numbers = new ArrayList<Integer>();
+        String entry;
 
         do
         {
@@ -18,7 +18,8 @@ public class ComputeStats {
                 try {
                     int num = Integer.parseInt(entry);
                     numbers.add(num);
-                }catch(NumberFormatException nfe) {
+                }
+                catch(NumberFormatException ignored) {
 
                 }
             }
@@ -36,8 +37,7 @@ public class ComputeStats {
         for(int num: numbers) {
             total += num;
         }
-        double avg = (double)(total)/numbers.size();
-        return avg;
+        return (double)(total)/numbers.size();
     }
     public static int max(ArrayList<Integer> numbers) {
         int max= numbers.get(0);
@@ -63,8 +63,7 @@ public class ComputeStats {
         for(int num: numbers) {
             sum = sum + Math.pow((num-mean), 2);
         }
-        double stdDev = Math.sqrt(sum/numbers.size());
-        return stdDev;
+        return Math.sqrt(sum/numbers.size());
     }
 
 }
